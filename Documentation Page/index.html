@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>technical-documentation-page</title>
+    <link rel="stylesheet" type="text/css" href="documentation_page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <header class="navhead">CSS Documentation</header>
+        <ul>
+            <li>
+                <a class="nav-link" href="#introduction">Introduction</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#css_syntax">CSS Syntax</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#how_to_add_css">How to Add CSS</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#css_combinators">CSS Combinators</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#css_positioning">CSS Positioning</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#css_flexbox">CSS Flexbox</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#css_grid">CSS Grid</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#references">References</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section">
+            <header id="introduction">Introduction</header>
+            <p>CSS (Cascading Style Sheet) is the language we use in styling web pages i.e it is a language for specifying how documents are presented to users — how they are styled, laid out, etc.</p>
+            <p>A <strong>document</strong> is a usually a text file structured using a markup language — HTML is the most common markup language, but you may also come across other markup languages such as SVG or XML.</p>
+            <p>CSS can be used for the following: 
+                <ul>
+                    <li>text styling — for example, for changing the color and size of headings and links.</li>
+                    <li>creating a layout — for example, turning a single column of text into a layout with a main content area and a sidebar for related information.</li>
+                    <li>effects such as animation.</li>
+                </ul>
+            </p>
+        </section>
+
+        <section class="main-section">
+            <header id="css_syntax">CSS Syntax</header>
+            <p>CSS is a rule based language  — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page.</p>
+            <p>For example, you can decide to have the main heading on your page to be shown as large red text. The following code shows a very simple CSS rule that would achieve the styling described above:</p>
+            <div id="main_code">
+                <code>
+                    h1 { color: red; font-size: 30px; }
+                </code>
+            </div>
+            <ul>
+                <li>In the above example, the CSS rule opens with a selector . This selects the HTML element that we are going to style. In this case, we are styling level one headings (<strong>h1</strong>).</li>
+                <li>We then have a set of curly braces { }.</li>
+                <li>Inside the braces will be one or more declarations, which take the form of property and value pairs. We specify the property (<strong>color</strong> in the above example) before the colon, and we specify the value of the property after the colon (<strong>red</strong> in this example).</li>
+                <li>This example contains two declarations, one for color and the other for font-size. Each pair specifies a property of the element(s) we are selecting (<strong>h1</strong> in this case), then a value that we'd like to give the property.</li>
+            </ul>
+        </section>
+
+        <section class="main-section">
+            <header id="how_to_add_css">How to Add CSS</header>
+            <p>There are three ways of insering a style sheet:</p>
+            <ol>
+                <li>
+                    External css - External styles are defined within the <strong>link</strong> element, inside the <strong>head</strong> section of an HTML page:
+                </li>
+            
+                <div id="main_code">
+                    <code>
+                        &lt!DOCTYPE html&gt
+                        <br>
+                        &lthtml&gt
+                        <br>
+                        &lthead&gt
+                        <br>
+                        &ltlink rel="stylesheet" href="mystyle.css"&gt
+                        <br>
+                        &lt/head&gt
+                        <br>
+                        &ltbody&gt
+                        <br>
+                        &lth1&gtThis is a heading&lt/h1&gt
+                        <br>
+                        &ltp&gtThis is a paragraph.&lt/p&gt
+                        <br>
+                        &lt/body&gt
+                        <br>
+                        &lt/html&gt
+                    </code>
+                </div>
+                <p>An external style sheet can be written in any text editor, and must be saved with a .css extension and the external .css file should not contain any HTML tags.
+                    Here is how the "mystyle.css" file looks:</p>
+                <div id="main_code">
+                    <code>body {
+                        background-color: lightblue;
+                        }
+                    
+                        h1 {
+                        color: navy;
+                        margin-left: 20px;
+                        }
+                    </code>
+                </div>
+                
+                <li>
+                    Internal CSS - internal style sheet may be used if one single HTML page has a unique style.
+                    The internal style is defined inside the <strong>style</strong> element, inside the head section.
+                    <br>
+                    Internal styles are defined within the <strong>style</strong> element, inside the <strong>head</strong> section of an HTML page:
+                </li>
+                <div id="main_code">
+                    <code>
+                        &lt!DOCTYPE html&gt
+                        <br>
+                        &lthtml&gt
+                        <br>
+                        &lthead&gt
+                        <br>
+                        &ltstyle&gt
+                        <br>
+                        body {
+                        <br>
+                        background-color: linen;
+                        <br>
+                        }
+                        <br>
+                        h1 {
+                        <br>
+                        color: maroon;
+                        <br>
+                        margin-left: 40px;
+                        <br>
+                        }
+                        <br>
+                        &lt/style&gt
+                        <br>
+                        &lthead&gt
+                        <br>
+                        &ltbody&gt
+                        <br>
+                        &lth1&gtThis is a heading&lt/h1&gt
+                        <br>
+                        &ltp&gtThis is a paragraph.&lt/p&gt
+                        <br>
+                        &lt/body&gt
+                        <br>
+                        &lt/html&gt
+                    </code>
+                </div>
+
+                <li>
+                    Inline CSS - Inline style may be used to apply a unique style for a single element.
+                    To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+                </li>
+
+                <div id="main_code">
+                    <code>
+                        &lt!DOCTYPE html&gt
+                        <br>
+                        &lthtml&gt
+                        <br>
+                        &ltbody&gt
+                        <br>
+                        &lth1&gt style="color:blue;text-align:center;" This is a heading&lth1&gt
+                        <br>
+                        &ltp&gtstyle="color:red;" This is a paragraph.&lt/p&gt
+                        <br>
+                        &lt/body&gt
+                        <br>
+                        &lt/html&gt
+                        <br>
+                    </code>
+                </div>
+            </ol>
+        </section>
+
+        <section class="main-section">
+            <header id="css_combinators">CSS Combinators</header>
+            <p>There are four different combinators in CSS:</p>
+            <ul>
+                <li>descendant selector (space)</li>
+                <div id="main_code">
+                    <code>
+                        div p {
+                        <br>
+                        background-color: yellow;
+                        <br>
+                      }
+                    </code>
+                </div>
+                <p>The descendant selector matches all elements that are descendants of a specified element.</p>
+                <li>child selector (>)</li>
+                <div id="main_code">
+                    <code>
+                        div > p {
+                        <br>
+                        background-color: yellow;
+                        <br>
+                      }
+                    </code>
+                </div>
+                <p>The child selector selects all elements that are the children of a specified element.</p>
+                <li>adjacent sibling selector (+)</li>
+                <div id="main_code">
+                    <code>
+                        div + p {
+                        <br>
+                        background-color: yellow;
+                        <br>
+                      }
+                    </code>
+                </div>
+                <p>The adjacent sibling selector is used to select an element that is directly after another specific element.
+                    Sibling elements must have the same parent element.</p>
+                <li>general sibling selector (~)</li>
+                <div id="main_code">
+                    <code>
+                        div ~ p {
+                        <br>
+                        background-color: yellow;
+                        <br>
+                      }
+                    </code>
+                </div>
+                <p>The general sibling selector selects all elements that are next siblings of a specified element.</p>
+            </ul>
+        </section>
+
+        <section class="main-section">
+            <header id="css_positioning">CSS Positioning</header>
+            <p>Positioning allows us to produce interesting results by overriding normal document flow.There are a number of different types of positioning that you can put into effect on HTML elements. To make a specific type of positioning active on an element, we use the <strong>position</strong> property.</p>
+            <code>position: static|absolute|fixed|relative|sticky|initial|inherit;</code>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Property Values</th>
+                        <th scope="col">Descrition</th>
+                    </tr>
+            </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Static</td>
+                        <td>Default value. Elements render in order, as they appear in the document flow</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Absolute</td>
+                        <td>The element is positioned relative to its first positioned (not static) ancestor element</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Fixed</td>.
+                        <td>The element is positioned relative to the browser window</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Reletive</td>
+                        <td>The element is positioned relative to its normal position, so "left:20px" adds 20 pixels to the element's LEFT position</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Sticky</td>
+                        <td>The element is positioned based on the user's scroll position</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="main-section">
+            <header id="css_flexbox">CSS Flexbox</header>
+            <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.</p>
+            <img class="image" src="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png" alt="Flex Model">
+            <p>When elements are laid out flex items, they are laid out along two axis:</p>
+            <ul>
+                <li>
+                    The <strong>main axis</strong> is the axis running in the direction the flex items are laid out in (for example, as rows across the page, or columns down the page.) The start and end of this axis are called the <strong>main start</strong> and <strong>main end</strong>.
+                </li>
+                <li>
+                    The <strong>cross axis</strong> is the axis running perpendicular to the direction the flex items are laid out in. The start and end of this axis are called the <strong>cross start</strong> and <strong>cross end</strong>.
+                </li>
+                <li>
+                    The parent element that has <u>display: flex</u> set on it is called the <strong>flex container</strong>.
+                </li>
+                <li>
+                    The items laid out as flexible boxes inside the flex container are called <strong>flex items</strong>.
+                </li>
+            </ul>
+        </section>
+
+        <section class="main-section">
+            <header id="css_grid">CSS Grid</header>
+            <p>CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns. It has many features that make building complex layouts straightforward.A grid will typically have columns, rows, and then gaps between each row and column. The gaps are commonly referred to as <strong>gutters</strong>.</p>
+            <div id="main_code">
+                <code>
+                    display: grid;
+                </code>
+            </div>
+            <p>Unlike Flexbox, the items will not immediately look any different. Declaring <u>display: grid</u> gives you a one column grid, so your items will continue to display one below the other as they do in normal flow. To see something that looks more grid-like, we'll need to add some columns/rows to the grid using pixels(px) or persentage(%). In addition to creating grids using lengths and percentages, the fr unit can be usd to flexibly size grid rows and columns. This unit represents one fraction of the available space in the grid container. </p>
+            <div id="main_code">
+                <code>
+                    .container { 
+                    <br>
+                    display: grid;
+                    <br>
+                    grid-template-columns: 1fr 1fr 1fr;
+                    <br>
+                }
+                </code>
+            </div>
+            
+            <div id="main_code">
+                <code>
+                    .container {
+                    <br>
+                    display: grid;
+                    <br>
+                    grid-template-rows: 200px 200px 200px;
+                    <br>
+                }
+                </code>
+            </div>
+        </section>
+        
+        <section class="main-section">
+            <header id="references">References</header>
+            <ul>
+                <li>
+                    The documentation from this page is gotten from 
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank">MDN</a>
+                    and 
+                    <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3Schools</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
